@@ -6,6 +6,6 @@ def solution(arr):
         elif 0 < i <= len(arr)-1:
             if arr[i] != arr[i-1]:
                 answer.append(arr[i])
-            else: 
-                pass
+        else: 
+            pass
     return answer
