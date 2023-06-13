@@ -1,6 +1,8 @@
 def solution(storey):
     
     # https://mag1c.tistory.com/166
+    # 5일 경우, 다음 자리 수가 5 이상이면 올라가고, 4 이하면 내려감
+    
     answer = 0
     
     tmp = str(storey)
