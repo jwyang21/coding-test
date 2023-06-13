@@ -1,0 +1,25 @@
+from collections import deque
+# https://americanoisice.tistory.com/196
+def solution(x, y, n):
+    dis = [0 for _ in range(y+1)]
+    Q = deque()
+    Q.append(x)
+    if x==y:
+        return 0
+    while Q:
+        nx = Q.popleft()
+        for dir in range(3):
+            if dir == 0:
+                cur_x = nx*2
+            if dir == 1:
+                cur_x = nx*3
+            if dir == 2:
+                cur_x = nx+n
+            if cur_x > y or dis[cur_x]:
+                continue
+            if cur_x == y:
+                return dis[nx]+1 # dis[cur_x] = dis[nx]+1 # nx까지 도달하기 위해 걸린 step 수 + 1
+            Q.append(cur_x)
+            dis[cur_x] = dis[nx]+1
+    return -1
+        
