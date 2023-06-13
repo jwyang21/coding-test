@@ -14,12 +14,15 @@ def solution(sequence, k):
             temp = q.popleft()
             sum -= temp
             start += 1
+            
+        # after while loop ends, record start and end if sum of sublist == k (only if end-start < result)
         if sum == k and end-start < result:
+            # end-start < result: if there are multiple sublists, choose one with the smaller index
             answer = [start, end]
             result = end - start # length of sublist
         
         q.append(sequence[i]) # append sequence[i] to the right end of the queue
         sum += sequence[i]
-        end = i
+        end = i # update end with i
     return answer
     
